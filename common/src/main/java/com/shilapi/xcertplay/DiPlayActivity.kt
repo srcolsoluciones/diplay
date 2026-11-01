@@ -5985,6 +5985,7 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
         appendLine("CarPlay setup: ${if (setupError == null) "ready" else "authentication unavailable"}")
         appendLine("Saved video preference (may differ from active session): ${if (AirPlayPersistence.loadHevcEnabled(appContext)) "HEVC" else "H.264"}; ${AirPlayPersistence.loadFps(appContext)} fps")
         appendLine("Media-key audio focus: ${if (AirPlayPersistence.loadDisableMediaKeyAudioFocus(appContext)) "disabled" else "enabled"}")
+        appendLine("Ghost-pause guard: ${AirPlayPersistence.loadGhostPauseGuardMs(appContext)} ms")
         appendLine("MTK decoder tuning preference: ${if (AirPlayPersistence.loadMtkDecoderTuning(appContext)) "enabled" else "disabled"}")
         appendLine("CarPlay size: ${AirPlayPersistence.loadWidthPhysicalMm(appContext).let { mm -> "${com.shilapi.xcertplay.airplay.CarPlaySize.exact(mm)?.label ?: "Custom"}, $mm mm" }}")
         appendLine("Saved resolution preference (may differ from active session): ${AirPlayPersistence.loadDisplayScalePercent(appContext)}%")
@@ -6234,6 +6235,12 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
             AirPlayPersistence.loadDisableMediaKeyAudioFocus(this)) {
             AirPlayPersistence.saveDisableMediaKeyAudioFocus(this, it)
             markReconnectNeeded()
+        }
+        toggle(parent, getString(R.string.settings_ghost_pause_guard),
+            getString(R.string.settings_ghost_pause_guard_description),
+            AirPlayPersistence.loadGhostPauseGuardMs(this) > 0) {
+            AirPlayPersistence.saveGhostPauseGuardMs(this,
+                if (it) AirPlayPersistence.DEFAULT_GHOST_PAUSE_GUARD_MS else 0)
         }
         val enabled = AirPlayPersistence.loadAudioFocusEnabled(this)
         val dependent = column().apply { visibility = if (enabled) View.VISIBLE else View.GONE }

@@ -67,6 +67,8 @@ internal object CarPlayMediaKeys {
     private var mediaAudioActive = false
     private var nowPlaying = CarPlayNowPlaying()
     private var elapsedUpdatedAt = 0L
+    /** When the iPhone last started playing (elapsedRealtime); drives the ghost-pause guard. */
+    @Volatile private var playStartedAt = 0L
     private var artwork: Bitmap? = null
     private val artworkCache = LinkedHashMap<Int, Bitmap?>()
     private var placeholder: Bitmap? = null
@@ -112,6 +114,7 @@ internal object CarPlayMediaKeys {
 
     /** The iPhone started or stopped playing; may run on any thread. */
     private fun onIphonePlaying(expected: CarPlayController, playing: Boolean) {
+        if (playing) playStartedAt = SystemClock.elapsedRealtime()
         if (playing) mainHandler.post {
             synchronized(this) {
                 if (controller === expected) regainFocusLocked(onIphonePlaybackResume = true)
@@ -287,6 +290,7 @@ internal object CarPlayMediaKeys {
     private fun updateLocked(active: Boolean) {
         val context = appContext ?: return
         if (controller == null) return
+        if (active && !mediaAudioActive) playStartedAt = SystemClock.elapsedRealtime()
         mediaAudioActive = active
         if (active && session == null) start(context) else if (active) regainFocusLocked()
         publishPlaybackStateLocked()
@@ -426,9 +430,24 @@ internal object CarPlayMediaKeys {
             WheelKeyLog.note("media key $source -> car video player $index")
             return
         }
+        if (isGhostPause(index)) {
+            Log.i(TAG, "media key $source -> blocked as ghost pause (music just started)")
+            WheelKeyLog.note("media key $source -> blocked as ghost pause")
+            return
+        }
         val sent = synchronized(this) { controller }?.sendMediaButton(index) ?: false
         Log.i(TAG, "media key $source -> CarPlay $index sent=$sent")
         WheelKeyLog.note("media key $source -> CarPlay $index sent=$sent")
+    }
+
+    /** A pause the car sends right after the iPhone starts music is almost never the driver's. */
+    private fun isGhostPause(index: Int): Boolean {
+        if (index != CarPlayMediaButton.PAUSE && index != CarPlayMediaButton.PLAY_PAUSE) return false
+        val started = playStartedAt
+        if (started == 0L) return false
+        val window = appContext?.let(AirPlayPersistence::loadGhostPauseGuardMs)
+            ?: AirPlayPersistence.DEFAULT_GHOST_PAUSE_GUARD_MS
+        return window > 0 && SystemClock.elapsedRealtime() - started < window
     }
 
     private fun notUsed(source: String) {

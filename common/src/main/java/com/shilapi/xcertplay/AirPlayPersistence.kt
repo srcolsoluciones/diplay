@@ -48,6 +48,8 @@ object AirPlayPersistence {
     private const val KEY_AUDIO_FOCUS_AUTO_YIELD = "audio_focus_auto_yield"
     private const val KEY_NAVIGATION_PROMPT_AUDIO_FOCUS = "navigation_prompt_audio_focus"
     private const val KEY_DISABLE_MEDIA_KEY_AUDIO_FOCUS = "disable_media_key_audio_focus"
+    private const val KEY_GHOST_PAUSE_GUARD_MS = "ghost_pause_guard_ms"
+    const val DEFAULT_GHOST_PAUSE_GUARD_MS = 5_000
     private const val KEY_MEDIA_AUDIO_CHANNEL = "media_audio_channel"
     private const val KEY_NAVIGATION_AUDIO_CHANNEL = "navigation_audio_channel"
     private const val KEY_NAVIGATION_AUDIO_ATTENUATION = "navigation_audio_attenuation_db"
@@ -286,6 +288,22 @@ object AirPlayPersistence {
     fun saveDisableMediaKeyAudioFocus(context: Context, disabled: Boolean) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
             .putBoolean(KEY_DISABLE_MEDIA_KEY_AUDIO_FOCUS, disabled)
+            .apply()
+    }
+
+    /**
+     * Ghost-pause guard: ignore PAUSE / PLAY_PAUSE that the car sends within this many milliseconds
+     * after the iPhone starts playing. Non-BYD head units (Ford with ZLink, generic Android radios)
+     * often pause the "previous" media session when CarPlay takes audio focus, which stops the music
+     * right after it starts. 0 disables the guard.
+     */
+    fun loadGhostPauseGuardMs(context: Context): Int =
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .getInt(KEY_GHOST_PAUSE_GUARD_MS, DEFAULT_GHOST_PAUSE_GUARD_MS)
+
+    fun saveGhostPauseGuardMs(context: Context, millis: Int) {
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
+            .putInt(KEY_GHOST_PAUSE_GUARD_MS, millis.coerceIn(0, 30_000))
             .apply()
     }
 
