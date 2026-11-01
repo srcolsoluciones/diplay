@@ -44,3 +44,27 @@ jobs:
           name: diplay-generico-apk
           path: mobile/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+  release:
+    # Publishes the debug APK as a GitHub Release so it downloads directly from the GitHub app.
+    needs: check
+    if: github.event_name == 'push' && github.ref == 'refs/heads/generico-ford'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: diplay-generico-apk
+          path: apk
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="generico-${{ github.run_number }}"
+          apk=$(ls apk/*.apk | head -1)
+          cp "$apk" "DiPlay-generico-${{ github.run_number }}.apk"
+          gh release create "$tag" "DiPlay-generico-${{ github.run_number }}.apk" \
+            --repo "${{ github.repository }}" --target "${{ github.sha }}" \
+            --title "DiPlay genérico #${{ github.run_number }}" \
+            --notes "APK de prueba compilado desde la rama generico-ford (commit ${{ github.sha }})." \
+            --latest
