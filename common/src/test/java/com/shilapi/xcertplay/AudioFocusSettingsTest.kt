@@ -27,7 +27,14 @@ class AudioFocusSettingsTest {
             .apply { isAccessible = true }.invoke(activity, page)
         activity.setContentView(page)
         val switches = views(page).filterIsInstance<Switch>().toList()
-        assertEquals(4, switches.size)
+        assertEquals(5, switches.size)
+        val ghostPause = switches.single { it.contentDescription == activity.getString(R.string.settings_ghost_pause_guard) }
+        assertTrue(ghostPause.isChecked)
+        assertEquals(AirPlayPersistence.DEFAULT_GHOST_PAUSE_GUARD_MS, AirPlayPersistence.loadGhostPauseGuardMs(activity))
+        ghostPause.isChecked = false
+        assertEquals(0, AirPlayPersistence.loadGhostPauseGuardMs(activity))
+        ghostPause.isChecked = true
+        assertEquals(AirPlayPersistence.DEFAULT_GHOST_PAUSE_GUARD_MS, AirPlayPersistence.loadGhostPauseGuardMs(activity))
         val disableMediaKeyFocus = switches.single {
             it.contentDescription == activity.getString(R.string.settings_disable_media_key_audio_focus)
         }

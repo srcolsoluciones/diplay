@@ -954,4 +954,15 @@
     <string name="cluster_projection_shape_description">При половине экрана скорость и состояние, которые панель обычно показывает, остаются рядом с картой; на весь экран карта занимает всю панель. DiPlay задаёт этот вид при каждом появлении карты CarPlay и иначе перекрывает вид, выбранный в машине. Требуется ADB по сети на головном устройстве.</string>
     <string name="settings_cluster_speedometer_album_color">Цвет альбома для фона спидометра</string>
     <string name="settings_cluster_speedometer_album_color_description">Плавно меняет фон на цвет рамки альбома. Сохраняет выбранную непрозрачность.</string>
+    <string name="settings_ghost_pause_guard">Блокировать паузу при запуске музыки</string>
+    <string name="settings_ghost_pause_guard_description">Игнорирует паузу, которую автомобиль отправляет в первые 5 секунд после запуска музыки CarPlay. Исправляет музыку, которая запускается и сразу останавливается на Ford, ZLink и других магнитолах не BYD.</string>
+    <string name="setup_brand_title">Ваш автомобиль</string>
+    <string name="setup_brand_description">Выберите марку автомобиля. CarPlay покажет кнопку с этим названием для возврата на экран автомобиля.</string>
+    <string name="setup_brand_choose">Марка</string>
+    <string name="setup_brand_other">Другая…</string>
+    <string name="setup_brand_icon_photo">Кнопка с вашим фото</string>
+    <string name="setup_brand_icon_monogram">Кнопка с инициалами марки</string>
+    <string name="setup_brand_pick_photo">Выбрать фото для кнопки</string>
+    <string name="setup_brand_use_monogram">Использовать инициалы марки</string>
+    <string name="setup_brand_hint">Выберите фото автомобиля или своё изображение эмблемы. Изменения применятся при следующем подключении CarPlay.</string>
 </resources>

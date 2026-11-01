@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="existing_wifi_title">Existing Wi-Fi / Same LAN</string>
     <string name="existing_wifi_description">Use an existing router or portable Wi-Fi. Keep the iPhone and car on the same network with Internet access.</string>
     <string name="existing_wifi_hint">Existing Wi-Fi · Keep both devices on the same Wi-Fi and Bluetooth on. No car hotspot is needed.</string>
@@ -1057,15 +1057,15 @@
     <string name="cluster_projection_shape_description">Half screen keeps the speed and status readouts the cluster normally shows beside the map; full screen lets the map fill the cluster. DiPlay sets the shape whenever the CarPlay map appears, which otherwise overrides the shape picked on the car. Needs ADB over network on the head unit.</string>
     <string name="settings_cluster_speedometer_album_color">Use album color for speedometer background</string>
     <string name="settings_cluster_speedometer_album_color_description">Match the album frame color with smooth transitions. Keeps the selected opacity.</string>
-    <string name="settings_ghost_pause_guard" tools:ignore="MissingTranslation">Block pause right after music starts</string>
-    <string name="settings_ghost_pause_guard_description" tools:ignore="MissingTranslation">Ignores a pause the car sends in the first 5 seconds after CarPlay music starts. Fixes music that starts and immediately pauses on Ford, ZLink and other non-BYD head units.</string>
-    <string name="setup_brand_title" tools:ignore="MissingTranslation">Your car</string>
-    <string name="setup_brand_description" tools:ignore="MissingTranslation">Choose your car brand. CarPlay shows a button with this name to go back to the car\'s own screen.</string>
-    <string name="setup_brand_choose" tools:ignore="MissingTranslation">Brand</string>
-    <string name="setup_brand_other" tools:ignore="MissingTranslation">Other…</string>
-    <string name="setup_brand_icon_photo" tools:ignore="MissingTranslation">Button with your photo</string>
-    <string name="setup_brand_icon_monogram" tools:ignore="MissingTranslation">Button with brand initials</string>
-    <string name="setup_brand_pick_photo" tools:ignore="MissingTranslation">Choose a photo for the button</string>
-    <string name="setup_brand_use_monogram" tools:ignore="MissingTranslation">Use brand initials</string>
-    <string name="setup_brand_hint" tools:ignore="MissingTranslation">Pick a photo of your car or your own badge image. Changes apply the next time CarPlay connects.</string>
+    <string name="settings_ghost_pause_guard">Block pause right after music starts</string>
+    <string name="settings_ghost_pause_guard_description">Ignores a pause the car sends in the first 5 seconds after CarPlay music starts. Fixes music that starts and immediately pauses on Ford, ZLink and other non-BYD head units.</string>
+    <string name="setup_brand_title">Your car</string>
+    <string name="setup_brand_description">Choose your car brand. CarPlay shows a button with this name to go back to the car\'s own screen.</string>
+    <string name="setup_brand_choose">Brand</string>
+    <string name="setup_brand_other">Other…</string>
+    <string name="setup_brand_icon_photo">Button with your photo</string>
+    <string name="setup_brand_icon_monogram">Button with brand initials</string>
+    <string name="setup_brand_pick_photo">Choose a photo for the button</string>
+    <string name="setup_brand_use_monogram">Use brand initials</string>
+    <string name="setup_brand_hint">Pick a photo of your car or your own badge image. Changes apply the next time CarPlay connects.</string>
 </resources>

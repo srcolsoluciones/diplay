@@ -1056,4 +1056,15 @@
     <string name="cluster_projection_shape_description">小画面ではメーター本来の車速や状態表示が地図の横に残ります。全画面では地図がメーター全体を覆います。CarPlayの地図が表示されるとDiPlayがこの形態を設定するため、クルマ側で選んだナビモードは上書きされます。車載機のネットワークADBが必要です。</string>
     <string name="settings_cluster_speedometer_album_color">速度計の背景にアルバムの色を使用</string>
     <string name="settings_cluster_speedometer_album_color_description">アルバムの枠の色に滑らかに切り替わります。選択した不透明度は維持されます。</string>
+    <string name="settings_ghost_pause_guard">音楽開始直後の一時停止をブロック</string>
+    <string name="settings_ghost_pause_guard_description">CarPlay の音楽が始まってから 5 秒以内に車が送る一時停止を無視します。Ford、ZLink など BYD 以外のヘッドユニットで、再生直後に止まる問題を解消します。</string>
+    <string name="setup_brand_title">あなたの車</string>
+    <string name="setup_brand_description">車のブランドを選んでください。CarPlay はこの名前のボタンを表示し、車の画面に戻れるようにします。</string>
+    <string name="setup_brand_choose">ブランド</string>
+    <string name="setup_brand_other">その他…</string>
+    <string name="setup_brand_icon_photo">写真のボタン</string>
+    <string name="setup_brand_icon_monogram">ブランドのイニシャルのボタン</string>
+    <string name="setup_brand_pick_photo">ボタンの写真を選ぶ</string>
+    <string name="setup_brand_use_monogram">ブランドのイニシャルを使う</string>
+    <string name="setup_brand_hint">車の写真や自分のエンブレム画像を選べます。変更は次回 CarPlay 接続時に反映されます。</string>
 </resources>

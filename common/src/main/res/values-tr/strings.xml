@@ -1042,4 +1042,15 @@
     <string name="wifi_direct_channel_unavailable">Wi-Fi Direct tercih edilen kanalı kullanamıyor</string>
     <string name="settings_existing_wifi_interface">Ağ arayüzü (isteğe bağlı)</string>
     <string name="settings_existing_wifi_interface_description">Yalnızca yerel ağ (LAN) bağlantısı Android\'in Wi-Fi olarak bildirmediği bir arayüzde (örneğin eth1 üzerindeki bir USB ağ kartı) çalışan üniteler içindir. Otomatik seçilmesi için boş bırakın.</string>
+    <string name="settings_ghost_pause_guard">Müzik başlarken duraklatmayı engelle</string>
+    <string name="settings_ghost_pause_guard_description">CarPlay müziği başladıktan sonraki ilk 5 saniyede aracın gönderdiği duraklatmayı yok sayar. Ford, ZLink ve BYD olmayan diğer ünitelerde başlayıp hemen duran müziği düzeltir.</string>
+    <string name="setup_brand_title">Aracınız</string>
+    <string name="setup_brand_description">Aracınızın markasını seçin. CarPlay, aracın kendi ekranına dönmek için bu adla bir düğme gösterir.</string>
+    <string name="setup_brand_choose">Marka</string>
+    <string name="setup_brand_other">Diğer…</string>
+    <string name="setup_brand_icon_photo">Fotoğrafınızla düğme</string>
+    <string name="setup_brand_icon_monogram">Marka baş harfleriyle düğme</string>
+    <string name="setup_brand_pick_photo">Düğme için fotoğraf seç</string>
+    <string name="setup_brand_use_monogram">Marka baş harflerini kullan</string>
+    <string name="setup_brand_hint">Aracınızın fotoğrafını veya kendi amblem görselinizi seçin. Değişiklikler CarPlay bir sonraki bağlandığında uygulanır.</string>
 </resources>

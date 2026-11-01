@@ -1014,4 +1014,15 @@
     <string name="cluster_projection_shape_description">半螢幕會在儀表板地圖旁保留儀表原本的車速與狀態資訊；全螢幕則讓地圖佔滿整個儀表板。CarPlay 地圖出現時 DiPlay 會設定該形態，否則會覆蓋你在車機上選好的導航模式。需要車機已授權網路 ADB。</string>
     <string name="settings_cluster_speedometer_album_color">速度表背景使用專輯顏色</string>
     <string name="settings_cluster_speedometer_album_color_description">平滑過渡至專輯邊框的顏色，並保留所選的不透明度。</string>
+    <string name="settings_ghost_pause_guard">音樂開始時阻擋暫停</string>
+    <string name="settings_ghost_pause_guard_description">忽略 CarPlay 音樂開始後 5 秒內車輛傳送的暫停指令。修正福特、ZLink 及其他非比亞迪車機上音樂一開始就暫停的問題。</string>
+    <string name="setup_brand_title">你的車</string>
+    <string name="setup_brand_description">選擇你的汽車品牌。CarPlay 會顯示帶有此名稱的按鈕，用來返回車機本身的畫面。</string>
+    <string name="setup_brand_choose">品牌</string>
+    <string name="setup_brand_other">其他…</string>
+    <string name="setup_brand_icon_photo">使用你的照片的按鈕</string>
+    <string name="setup_brand_icon_monogram">使用品牌縮寫的按鈕</string>
+    <string name="setup_brand_pick_photo">為按鈕選擇照片</string>
+    <string name="setup_brand_use_monogram">使用品牌縮寫</string>
+    <string name="setup_brand_hint">選擇你的愛車照片或自己的徽章圖片。變更會在 CarPlay 下次連線時生效。</string>
 </resources>

@@ -1003,4 +1003,15 @@
     <string name="cluster_projection_shape_description">يُبقي وضع نصف الشاشة السرعة وحالة السيارة اللتين تعرضهما اللوحة عادةً بجانب الخريطة؛ أما ملء الشاشة فتغطي الخريطة اللوحة بالكامل. يضبط DiPlay هذا الشكل عند ظهور خريطة CarPlay، وإلا فإنه يلغي الشكل المختار في السيارة. يتطلب ADB عبر الشبكة على وحدة القيادة.</string>
     <string name="settings_cluster_speedometer_album_color">استخدام لون الألبوم لخلفية عداد السرعة</string>
     <string name="settings_cluster_speedometer_album_color_description">يطابق لون إطار الألبوم بانتقالات سلسة مع الحفاظ على التعتيم المحدد.</string>
+    <string name="settings_ghost_pause_guard">حظر الإيقاف المؤقت عند بدء الموسيقى</string>
+    <string name="settings_ghost_pause_guard_description">يتجاهل الإيقاف المؤقت الذي ترسله السيارة خلال أول 5 ثوانٍ بعد بدء موسيقى CarPlay. يصلح الموسيقى التي تبدأ ثم تتوقف فورًا في Ford وZLink والشاشات الأخرى غير BYD.</string>
+    <string name="setup_brand_title">سيارتك</string>
+    <string name="setup_brand_description">اختر علامة سيارتك. يعرض CarPlay زرًا بهذا الاسم للعودة إلى شاشة السيارة.</string>
+    <string name="setup_brand_choose">العلامة التجارية</string>
+    <string name="setup_brand_other">أخرى…</string>
+    <string name="setup_brand_icon_photo">زر بصورتك</string>
+    <string name="setup_brand_icon_monogram">زر بالأحرف الأولى للعلامة</string>
+    <string name="setup_brand_pick_photo">اختر صورة للزر</string>
+    <string name="setup_brand_use_monogram">استخدم الأحرف الأولى للعلامة</string>
+    <string name="setup_brand_hint">اختر صورة لسيارتك أو صورة شعارك الخاصة. تُطبَّق التغييرات عند اتصال CarPlay التالي.</string>
 </resources>
