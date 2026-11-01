@@ -37,3 +37,10 @@ jobs:
             samples/home/build/reports/tests/
             samples/home/build/reports/lint-results-debug.html
             samples/maphost/build/reports/lint-results-debug.html
+      - name: APK
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diplay-generico-apk
+          path: mobile/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
