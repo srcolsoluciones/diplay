@@ -88,6 +88,7 @@ import com.shilapi.xcertplay.orchestration.MfiTarget
 import com.shilapi.xcertplay.orchestration.WirelessHotspotMode
 import com.shilapi.xcertplay.settings.SettingsTheme
 import com.shilapi.xcertplay.settings.SettingsWidgets
+import com.shilapi.xcertplay.setup.CarBrand
 import com.shilapi.xcertplay.setup.DiLinkGeneration
 import com.shilapi.xcertplay.setup.SetupGuide
 import com.shilapi.xcertplay.transport.EvChargingConnectors
@@ -338,7 +339,8 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
     }
     private val iconCrop = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode != RESULT_OK) return@registerForActivityResult
-        refreshCarButton()
+        CarBrand.markIconFromPhoto(this, true)
+        if (page == "setup") render() else refreshCarButton()
         carButtonSaved()
     }
     private val export = registerForActivityResult(ActivityResultContracts.CreateDocument("text/plain")) { uri ->
@@ -3344,6 +3346,10 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
     }
 
     private fun setupCarStep(content: LinearLayout) {
+        setupBrandCard(content)
+        val brand = CarBrand.saved(this)
+        val byd = CarHotspotSetup.isBydHeadUnit(this) || brand == CarBrand.BYD
+        if (!byd) return
         val detection = DiLinkGeneration.detect()
         val selected = DiLinkGeneration.confirmed(this) ?: detection.generation
         setupTitle(content, R.string.setup_car_title, when (detection.source) {
@@ -3369,6 +3375,83 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
             card.addView(label(getString(R.string.setup_car_evidence, it), 13, MUTED).apply { setPadding(0, dp(16), 0, 0) })
         }
         content.addView(card, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(SETTINGS_BLOCK_GAP_DP) })
+    }
+
+    /** Brand picker: names CarPlay's "back to the car" button and gives it a monogram or the driver's photo. */
+    private fun setupBrandCard(content: LinearLayout) {
+        val selected = CarBrand.saved(this)
+        content.addView(label(getString(R.string.setup_brand_title), 34, TEXT, true))
+        content.addView(label(getString(R.string.setup_brand_description), 17, MUTED).apply { setPadding(0, dp(8), 0, dp(24)) })
+        val card = card()
+        card.addView(label(getString(R.string.setup_brand_choose), 22, TEXT, true))
+        val columns = if (resources.configuration.screenWidthDp >= 850) 4 else 2
+        CarBrand.entries.chunked(columns).forEach { line ->
+            val choices = row()
+            line.forEachIndexed { index, brand ->
+                val chosen = brand == selected
+                val title = if (brand == CarBrand.OTHER) getString(R.string.setup_brand_other) else brand.label
+                choices.addView(button("${if (chosen) "✓  " else ""}$title", chosen) {
+                    if (brand == CarBrand.OTHER) {
+                        textInput(getString(R.string.car_button_name), AirPlayPersistence.loadOemLabel(this), secret = false) { name ->
+                            CarBrand.choose(this, brand, name)
+                            carButtonSaved()
+                            render()
+                        }
+                    } else {
+                        CarBrand.choose(this, brand)
+                        carButtonSaved()
+                        render()
+                    }
+                }, LinearLayout.LayoutParams(0, dp(60), 1f).apply {
+                    topMargin = dp(12); if (index > 0) marginStart = dp(12)
+                })
+            }
+            repeat(columns - line.size) {
+                choices.addView(space(1), LinearLayout.LayoutParams(0, dp(60), 1f).apply { marginStart = dp(12) })
+            }
+            card.addView(choices)
+        }
+        content.addView(card, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(SETTINGS_BLOCK_GAP_DP) })
+        if (selected == null) return
+
+        // Preview of CarPlay's car button with its name, and the photo choice.
+        val iconCard = card()
+        val custom = AirPlayPersistence.loadCustomAirPlayIconFile(this)?.let { BitmapFactory.decodeFile(it.absolutePath) }
+        val preview = row().apply { gravity = Gravity.CENTER_VERTICAL }
+        preview.addView(ImageView(this).apply {
+            setImageBitmap(custom ?: BitmapFactory.decodeResource(resources, R.raw.ic_car_home))
+            scaleType = ImageView.ScaleType.CENTER_CROP
+            background = rounded(SURFACE, BORDER)
+            clipToOutline = true
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+        }, LinearLayout.LayoutParams(dp(96), dp(96)).apply { marginEnd = dp(20) })
+        val text = column()
+        text.addView(label(AirPlayPersistence.loadOemLabel(this), 22, TEXT, true))
+        text.addView(label(getString(if (CarBrand.iconFromPhoto(this)) R.string.setup_brand_icon_photo
+            else R.string.setup_brand_icon_monogram), 14, MUTED).apply { setPadding(0, dp(6), 0, 0) })
+        preview.addView(text, LinearLayout.LayoutParams(0, -2, 1f))
+        iconCard.addView(preview)
+        iconCard.addView(button(getString(R.string.setup_brand_pick_photo), true) {
+            launchCarButtonImagePicker(
+                openDocument = { iconDocumentPicker.launch(arrayOf("image/*")) },
+                getContent = { iconPicker.launch("image/*") },
+                documentPickerIsSystem = documentPickerIsSystem(),
+            ).onFailure { toast(getString(R.string.this_head_unit_has_no_image_picker)) }
+        }, matchButton(16, 60))
+        if (CarBrand.iconFromPhoto(this)) iconCard.addView(button(getString(R.string.setup_brand_use_monogram), false) {
+            CarBrand.useMonogram(this)
+            carButtonSaved()
+            render()
+        }, matchButton(10, 60))
+        iconCard.addView(button("${getString(R.string.car_button_name)} · ${AirPlayPersistence.loadOemLabel(this)}", false) {
+            textInput(getString(R.string.car_button_name), AirPlayPersistence.loadOemLabel(this), secret = false) {
+                AirPlayPersistence.saveOemLabel(this, it)
+                carButtonSaved()
+                render()
+            }
+        }, matchButton(10, 60))
+        iconCard.addView(label(getString(R.string.setup_brand_hint), 14, MUTED).apply { setPadding(0, dp(12), 0, 0) })
+        content.addView(iconCard, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(SETTINGS_BLOCK_GAP_DP) })
     }
 
     private fun setupConnectionStep(content: LinearLayout) {
@@ -3421,7 +3504,10 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
             content.addView(warning, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(SETTINGS_BLOCK_GAP_DP) })
         }
         val card = card()
-        SetupGuide.features(generation).forEach { entry ->
+        val bydCar = CarHotspotSetup.isBydHeadUnit(this) || CarBrand.saved(this) == CarBrand.BYD
+        SetupGuide.features(generation).filter { bydCar ||
+            it.feature == SetupGuide.Feature.AUTO_CONNECT || it.feature == SetupGuide.Feature.LOCATION
+        }.forEach { entry ->
             val before = card.childCount
             when (entry.feature) {
                 SetupGuide.Feature.AUTO_CONNECT -> toggle(card, getString(R.string.connect_when_diplay_opens),
@@ -5610,6 +5696,7 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
             ).onFailure { toast(getString(R.string.this_head_unit_has_no_image_picker)) }
         }, matchButton(16, 60))
         if (custom != null) parent.addView(button(getString(R.string.default_icon), false) {
+            CarBrand.markIconFromPhoto(this, false)
             AirPlayPersistence.clearCustomAirPlayIcon(this)
             refreshCarButton()
             carButtonSaved()

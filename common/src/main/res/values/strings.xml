@@ -1059,4 +1059,13 @@
     <string name="settings_cluster_speedometer_album_color_description">Match the album frame color with smooth transitions. Keeps the selected opacity.</string>
     <string name="settings_ghost_pause_guard" tools:ignore="MissingTranslation">Block pause right after music starts</string>
     <string name="settings_ghost_pause_guard_description" tools:ignore="MissingTranslation">Ignores a pause the car sends in the first 5 seconds after CarPlay music starts. Fixes music that starts and immediately pauses on Ford, ZLink and other non-BYD head units.</string>
+    <string name="setup_brand_title" tools:ignore="MissingTranslation">Your car</string>
+    <string name="setup_brand_description" tools:ignore="MissingTranslation">Choose your car brand. CarPlay shows a button with this name to go back to the car\'s own screen.</string>
+    <string name="setup_brand_choose" tools:ignore="MissingTranslation">Brand</string>
+    <string name="setup_brand_other" tools:ignore="MissingTranslation">Other…</string>
+    <string name="setup_brand_icon_photo" tools:ignore="MissingTranslation">Button with your photo</string>
+    <string name="setup_brand_icon_monogram" tools:ignore="MissingTranslation">Button with brand initials</string>
+    <string name="setup_brand_pick_photo" tools:ignore="MissingTranslation">Choose a photo for the button</string>
+    <string name="setup_brand_use_monogram" tools:ignore="MissingTranslation">Use brand initials</string>
+    <string name="setup_brand_hint" tools:ignore="MissingTranslation">Pick a photo of your car or your own badge image. Changes apply the next time CarPlay connects.</string>
 </resources>

@@ -956,4 +956,13 @@
     <string name="settings_cluster_speedometer_album_color_description">Iguala el color del borde del álbum con transiciones suaves. Conserva la opacidad elegida.</string>
     <string name="settings_ghost_pause_guard">Bloquear pausa al iniciar la música</string>
     <string name="settings_ghost_pause_guard_description">Ignora la pausa que envía el carro en los primeros 5 segundos después de que empieza la música de CarPlay. Corrige la música que inicia y se pausa sola en Ford, ZLink y otras radios que no son BYD.</string>
+    <string name="setup_brand_title">Tu carro</string>
+    <string name="setup_brand_description">Elige la marca de tu carro. CarPlay mostrará un botón con este nombre para volver a la pantalla del carro.</string>
+    <string name="setup_brand_choose">Marca</string>
+    <string name="setup_brand_other">Otra…</string>
+    <string name="setup_brand_icon_photo">Botón con tu foto</string>
+    <string name="setup_brand_icon_monogram">Botón con las iniciales de la marca</string>
+    <string name="setup_brand_pick_photo">Elegir foto para el botón</string>
+    <string name="setup_brand_use_monogram">Usar iniciales de la marca</string>
+    <string name="setup_brand_hint">Elige una foto de tu carro o una imagen propia del emblema. Los cambios se aplican la próxima vez que CarPlay se conecte.</string>
 </resources>
