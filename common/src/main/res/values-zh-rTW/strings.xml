@@ -1025,4 +1025,24 @@
     <string name="setup_brand_pick_photo">為按鈕選擇照片</string>
     <string name="setup_brand_use_monogram">使用品牌縮寫</string>
     <string name="setup_brand_hint">選擇你的愛車照片或自己的徽章圖片。變更會在 CarPlay 下次連線時生效。</string>
+    <string name="home_launcher_label">DiPlay 主畫面</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">DiPlay 設定</string>
+    <string name="home_title_apps">應用程式</string>
+    <string name="home_hint">長按應用程式可移動或移除。</string>
+    <string name="home_all_apps">所有應用程式</string>
+    <string name="home_drawer_hint">長按應用程式可將其加入主畫面或從主畫面移除（★）。</string>
+    <string name="home_move_left">左移</string>
+    <string name="home_move_right">右移</string>
+    <string name="home_remove_favorite">從主畫面移除</string>
+    <string name="home_favorites_full">主畫面已滿。請先移除一個應用程式。</string>
+    <string name="home_cannot_open">無法開啟此應用程式。</string>
+    <string name="setup_home_title">主畫面</string>
+    <string name="setup_home_description">DiPlay 可以用自己的主畫面取代車機主畫面：顯示你的汽車品牌和照片、時鐘、大型 CarPlay 按鈕以及常用應用程式。隨時可以切換回來。</string>
+    <string name="setup_home_use">使用 DiPlay 主畫面</string>
+    <string name="setup_home_keep">保留車機主畫面</string>
+    <string name="setup_home_open_picker">開啟主畫面應用程式設定</string>
+    <string name="setup_home_pick_hint">選擇「DiPlay 主畫面」作為主畫面應用程式，然後按主畫面鍵。</string>
+    <string name="setup_home_active">正在使用 DiPlay 主畫面。按主畫面鍵即可查看。</string>
+    <string name="setup_home_enabled_not_default">DiPlay 主畫面已開啟但尚未選擇。請開啟主畫面應用程式設定並選擇「DiPlay 主畫面」。</string>
 </resources>

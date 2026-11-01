@@ -1068,4 +1068,24 @@
     <string name="setup_brand_pick_photo">Choose a photo for the button</string>
     <string name="setup_brand_use_monogram">Use brand initials</string>
     <string name="setup_brand_hint">Pick a photo of your car or your own badge image. Changes apply the next time CarPlay connects.</string>
+    <string name="home_launcher_label">DiPlay Home</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">DiPlay settings</string>
+    <string name="home_title_apps">Apps</string>
+    <string name="home_hint">Touch and hold an app to move or remove it.</string>
+    <string name="home_all_apps">All apps</string>
+    <string name="home_drawer_hint">Touch and hold an app to add it to or remove it from the home screen (★).</string>
+    <string name="home_move_left">Move left</string>
+    <string name="home_move_right">Move right</string>
+    <string name="home_remove_favorite">Remove from home screen</string>
+    <string name="home_favorites_full">The home screen is full. Remove an app first.</string>
+    <string name="home_cannot_open">This app could not be opened.</string>
+    <string name="setup_home_title">Home screen</string>
+    <string name="setup_home_description">DiPlay can replace the head unit\'s home screen with its own: your car brand and photo, a clock, a large CarPlay button and your favourite apps. You can switch back at any time.</string>
+    <string name="setup_home_use">Use DiPlay home screen</string>
+    <string name="setup_home_keep">Keep the head unit\'s home screen</string>
+    <string name="setup_home_open_picker">Open home app settings</string>
+    <string name="setup_home_pick_hint">Choose “DiPlay Home” as the home app, then press Home.</string>
+    <string name="setup_home_active">DiPlay home screen is in use. Press Home to see it.</string>
+    <string name="setup_home_enabled_not_default">DiPlay home screen is on but not chosen yet. Open the home app settings and choose “DiPlay Home”.</string>
 </resources>

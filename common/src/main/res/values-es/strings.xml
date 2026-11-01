@@ -965,4 +965,24 @@
     <string name="setup_brand_pick_photo">Elegir foto para el botón</string>
     <string name="setup_brand_use_monogram">Usar iniciales de la marca</string>
     <string name="setup_brand_hint">Elige una foto de tu carro o una imagen propia del emblema. Los cambios se aplican la próxima vez que CarPlay se conecte.</string>
+    <string name="home_launcher_label">DiPlay Inicio</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">Ajustes de DiPlay</string>
+    <string name="home_title_apps">Apps</string>
+    <string name="home_hint">Mantén presionada una app para moverla o quitarla.</string>
+    <string name="home_all_apps">Todas las apps</string>
+    <string name="home_drawer_hint">Mantén presionada una app para agregarla o quitarla de la pantalla de inicio (★).</string>
+    <string name="home_move_left">Mover a la izquierda</string>
+    <string name="home_move_right">Mover a la derecha</string>
+    <string name="home_remove_favorite">Quitar de la pantalla de inicio</string>
+    <string name="home_favorites_full">La pantalla de inicio está llena. Quita una app primero.</string>
+    <string name="home_cannot_open">No se pudo abrir esta app.</string>
+    <string name="setup_home_title">Pantalla de inicio</string>
+    <string name="setup_home_description">DiPlay puede reemplazar la pantalla de inicio de la radio por la suya: la marca y foto de tu carro, un reloj, un botón grande de CarPlay y tus apps favoritas. Puedes volver a la de la radio cuando quieras.</string>
+    <string name="setup_home_use">Usar la pantalla de inicio de DiPlay</string>
+    <string name="setup_home_keep">Mantener la de la radio</string>
+    <string name="setup_home_open_picker">Abrir ajustes de Página principal</string>
+    <string name="setup_home_pick_hint">Elige “DiPlay Inicio” como página principal y luego presiona Inicio.</string>
+    <string name="setup_home_active">La pantalla de inicio de DiPlay está en uso. Presiona Inicio para verla.</string>
+    <string name="setup_home_enabled_not_default">La pantalla de inicio de DiPlay está activada pero aún no elegida. Abre los ajustes de Página principal y elige “DiPlay Inicio”.</string>
 </resources>

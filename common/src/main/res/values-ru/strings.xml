@@ -965,4 +965,24 @@
     <string name="setup_brand_pick_photo">Выбрать фото для кнопки</string>
     <string name="setup_brand_use_monogram">Использовать инициалы марки</string>
     <string name="setup_brand_hint">Выберите фото автомобиля или своё изображение эмблемы. Изменения применятся при следующем подключении CarPlay.</string>
+    <string name="home_launcher_label">DiPlay Главная</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">Настройки DiPlay</string>
+    <string name="home_title_apps">Приложения</string>
+    <string name="home_hint">Нажмите и удерживайте приложение, чтобы переместить или убрать его.</string>
+    <string name="home_all_apps">Все приложения</string>
+    <string name="home_drawer_hint">Нажмите и удерживайте приложение, чтобы добавить его на главный экран или убрать (★).</string>
+    <string name="home_move_left">Переместить влево</string>
+    <string name="home_move_right">Переместить вправо</string>
+    <string name="home_remove_favorite">Убрать с главного экрана</string>
+    <string name="home_favorites_full">Главный экран заполнен. Сначала уберите приложение.</string>
+    <string name="home_cannot_open">Не удалось открыть это приложение.</string>
+    <string name="setup_home_title">Главный экран</string>
+    <string name="setup_home_description">DiPlay может заменить главный экран магнитолы своим: марка и фото автомобиля, часы, большая кнопка CarPlay и избранные приложения. Вернуться можно в любой момент.</string>
+    <string name="setup_home_use">Использовать главный экран DiPlay</string>
+    <string name="setup_home_keep">Оставить экран магнитолы</string>
+    <string name="setup_home_open_picker">Открыть настройки главного приложения</string>
+    <string name="setup_home_pick_hint">Выберите «DiPlay Главная» как главное приложение и нажмите «Домой».</string>
+    <string name="setup_home_active">Главный экран DiPlay используется. Нажмите «Домой», чтобы увидеть его.</string>
+    <string name="setup_home_enabled_not_default">Главный экран DiPlay включён, но ещё не выбран. Откройте настройки главного приложения и выберите «DiPlay Главная».</string>
 </resources>

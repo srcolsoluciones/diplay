@@ -1053,4 +1053,24 @@
     <string name="setup_brand_pick_photo">Düğme için fotoğraf seç</string>
     <string name="setup_brand_use_monogram">Marka baş harflerini kullan</string>
     <string name="setup_brand_hint">Aracınızın fotoğrafını veya kendi amblem görselinizi seçin. Değişiklikler CarPlay bir sonraki bağlandığında uygulanır.</string>
+    <string name="home_launcher_label">DiPlay Ana Ekran</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">DiPlay ayarları</string>
+    <string name="home_title_apps">Uygulamalar</string>
+    <string name="home_hint">Taşımak veya kaldırmak için bir uygulamaya basılı tutun.</string>
+    <string name="home_all_apps">Tüm uygulamalar</string>
+    <string name="home_drawer_hint">Ana ekrana eklemek veya kaldırmak için bir uygulamaya basılı tutun (★).</string>
+    <string name="home_move_left">Sola taşı</string>
+    <string name="home_move_right">Sağa taşı</string>
+    <string name="home_remove_favorite">Ana ekrandan kaldır</string>
+    <string name="home_favorites_full">Ana ekran dolu. Önce bir uygulama kaldırın.</string>
+    <string name="home_cannot_open">Bu uygulama açılamadı.</string>
+    <string name="setup_home_title">Ana ekran</string>
+    <string name="setup_home_description">DiPlay, ünitenin ana ekranını kendi ekranıyla değiştirebilir: aracınızın markası ve fotoğrafı, saat, büyük bir CarPlay düğmesi ve favori uygulamalarınız. İstediğiniz zaman geri dönebilirsiniz.</string>
+    <string name="setup_home_use">DiPlay ana ekranını kullan</string>
+    <string name="setup_home_keep">Ünitenin ana ekranını koru</string>
+    <string name="setup_home_open_picker">Ana uygulama ayarlarını aç</string>
+    <string name="setup_home_pick_hint">Ana uygulama olarak “DiPlay Ana Ekran”ı seçin, ardından Ana Ekran düğmesine basın.</string>
+    <string name="setup_home_active">DiPlay ana ekranı kullanılıyor. Görmek için Ana Ekran düğmesine basın.</string>
+    <string name="setup_home_enabled_not_default">DiPlay ana ekranı açık ama henüz seçilmedi. Ana uygulama ayarlarını açıp “DiPlay Ana Ekran”ı seçin.</string>
 </resources>

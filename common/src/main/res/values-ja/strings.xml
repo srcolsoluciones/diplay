@@ -1067,4 +1067,24 @@
     <string name="setup_brand_pick_photo">ボタンの写真を選ぶ</string>
     <string name="setup_brand_use_monogram">ブランドのイニシャルを使う</string>
     <string name="setup_brand_hint">車の写真や自分のエンブレム画像を選べます。変更は次回 CarPlay 接続時に反映されます。</string>
+    <string name="home_launcher_label">DiPlay ホーム</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">DiPlay の設定</string>
+    <string name="home_title_apps">アプリ</string>
+    <string name="home_hint">アプリを長押しすると移動・削除できます。</string>
+    <string name="home_all_apps">すべてのアプリ</string>
+    <string name="home_drawer_hint">アプリを長押しするとホーム画面に追加・削除できます（★）。</string>
+    <string name="home_move_left">左へ移動</string>
+    <string name="home_move_right">右へ移動</string>
+    <string name="home_remove_favorite">ホーム画面から削除</string>
+    <string name="home_favorites_full">ホーム画面がいっぱいです。先にアプリを削除してください。</string>
+    <string name="home_cannot_open">このアプリを開けませんでした。</string>
+    <string name="setup_home_title">ホーム画面</string>
+    <string name="setup_home_description">DiPlay はヘッドユニットのホーム画面を独自の画面に置き換えられます。車のブランドと写真、時計、大きな CarPlay ボタン、お気に入りのアプリを表示します。いつでも元に戻せます。</string>
+    <string name="setup_home_use">DiPlay のホーム画面を使う</string>
+    <string name="setup_home_keep">ヘッドユニットのホーム画面のままにする</string>
+    <string name="setup_home_open_picker">ホームアプリの設定を開く</string>
+    <string name="setup_home_pick_hint">ホームアプリとして「DiPlay ホーム」を選び、ホームボタンを押してください。</string>
+    <string name="setup_home_active">DiPlay のホーム画面を使用中です。ホームボタンを押すと表示されます。</string>
+    <string name="setup_home_enabled_not_default">DiPlay のホーム画面はオンですが、まだ選ばれていません。ホームアプリの設定を開いて「DiPlay ホーム」を選んでください。</string>
 </resources>

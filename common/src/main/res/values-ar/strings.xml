@@ -1014,4 +1014,24 @@
     <string name="setup_brand_pick_photo">اختر صورة للزر</string>
     <string name="setup_brand_use_monogram">استخدم الأحرف الأولى للعلامة</string>
     <string name="setup_brand_hint">اختر صورة لسيارتك أو صورة شعارك الخاصة. تُطبَّق التغييرات عند اتصال CarPlay التالي.</string>
+    <string name="home_launcher_label">DiPlay الرئيسية</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">إعدادات DiPlay</string>
+    <string name="home_title_apps">التطبيقات</string>
+    <string name="home_hint">المس مطولًا أي تطبيق لنقله أو إزالته.</string>
+    <string name="home_all_apps">كل التطبيقات</string>
+    <string name="home_drawer_hint">المس مطولًا أي تطبيق لإضافته إلى الشاشة الرئيسية أو إزالته منها (★).</string>
+    <string name="home_move_left">نقل لليسار</string>
+    <string name="home_move_right">نقل لليمين</string>
+    <string name="home_remove_favorite">إزالة من الشاشة الرئيسية</string>
+    <string name="home_favorites_full">الشاشة الرئيسية ممتلئة. أزل تطبيقًا أولًا.</string>
+    <string name="home_cannot_open">تعذر فتح هذا التطبيق.</string>
+    <string name="setup_home_title">الشاشة الرئيسية</string>
+    <string name="setup_home_description">يمكن لـ DiPlay استبدال الشاشة الرئيسية للوحدة بشاشته: علامة سيارتك وصورتها وساعة وزر CarPlay كبير وتطبيقاتك المفضلة. يمكنك العودة في أي وقت.</string>
+    <string name="setup_home_use">استخدام الشاشة الرئيسية لـ DiPlay</string>
+    <string name="setup_home_keep">الإبقاء على شاشة الوحدة</string>
+    <string name="setup_home_open_picker">فتح إعدادات التطبيق الرئيسي</string>
+    <string name="setup_home_pick_hint">اختر “DiPlay الرئيسية” كتطبيق رئيسي ثم اضغط زر الرئيسية.</string>
+    <string name="setup_home_active">الشاشة الرئيسية لـ DiPlay قيد الاستخدام. اضغط زر الرئيسية لرؤيتها.</string>
+    <string name="setup_home_enabled_not_default">الشاشة الرئيسية لـ DiPlay مفعّلة ولكن لم تُختر بعد. افتح إعدادات التطبيق الرئيسي واختر “DiPlay الرئيسية”.</string>
 </resources>

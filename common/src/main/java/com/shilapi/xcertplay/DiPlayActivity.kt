@@ -88,6 +88,7 @@ import com.shilapi.xcertplay.orchestration.MfiTarget
 import com.shilapi.xcertplay.orchestration.WirelessHotspotMode
 import com.shilapi.xcertplay.settings.SettingsTheme
 import com.shilapi.xcertplay.settings.SettingsWidgets
+import com.shilapi.xcertplay.launcher.CarHome
 import com.shilapi.xcertplay.setup.CarBrand
 import com.shilapi.xcertplay.setup.DiLinkGeneration
 import com.shilapi.xcertplay.setup.SetupGuide
@@ -261,6 +262,12 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
     private var updateFile: File? = null
     private var updateMessage: String? = null
     private var carButtonCard: LinearLayout? = null
+    private var homeLauncherShownState: Int? = null
+    private fun homeLauncherState(): Int = when {
+        !CarHome.enabled(this) -> 0
+        CarHome.isDefaultHome(this) -> 2
+        else -> 1
+    }
     private var bydAdbControls: LinearLayout? = null
     private var adbSwitchChangePending = false
     private var pausedForAdbSwitchChange = false
@@ -528,6 +535,8 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
         applyFullscreenMode()
         // Returning from another activity can bring the head unit's own density back.
         if (enforceInterfaceSize()) render()
+        // Back from the system's home picker: show whether DiPlay's home screen is now the default.
+        else if (homeLauncherShownState != null && homeLauncherShownState != homeLauncherState()) render()
         if (Build.VERSION.SDK_INT < 33 && AppLocale.preference(this) != languagePreferenceAtCreate) {
             recreate()
             return
@@ -2084,6 +2093,8 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
         }
         filteredSection(content, SettingsSection.CAR_BUTTON,
             getString(R.string.car_button_in_carplay), R.drawable.ic_dp_car) { card -> carButtonCard = card; carButtonControls(card) }
+        filteredSection(content, SettingsSection.CAR_BUTTON,
+            getString(R.string.setup_home_title), R.drawable.ic_dp_car) { card -> homeLauncherControls(card) }
         filteredSection(content, SettingsSection.AUDIO_ROUTING,
             getString(R.string.audio_routing), R.drawable.ic_dp_audio) { card ->
             mediaChannelControl(card)
@@ -3503,6 +3514,9 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
             clusterRouteConflict(warning)
             content.addView(warning, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(SETTINGS_BLOCK_GAP_DP) })
         }
+        val homeCard = card()
+        homeLauncherControls(homeCard)
+        content.addView(homeCard, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(SETTINGS_BLOCK_GAP_DP) })
         val card = card()
         val bydCar = CarHotspotSetup.isBydHeadUnit(this) || CarBrand.saved(this) == CarBrand.BYD
         SetupGuide.features(generation).filter { bydCar ||
@@ -5710,6 +5724,36 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
             }
         }, matchButton(10, 60))
         parent.addView(label(getString(R.string.car_button_description), 14, MUTED).apply { setPadding(0, dp(12), 0, 0) })
+    }
+
+    /** With or without DiPlay's own home screen; the head unit's launcher stays the default until chosen. */
+    private fun homeLauncherControls(parent: LinearLayout) {
+        val enabled = CarHome.enabled(this)
+        val isDefault = enabled && CarHome.isDefaultHome(this)
+        homeLauncherShownState = homeLauncherState()
+        parent.addView(label(getString(R.string.setup_home_title), 22, TEXT, true))
+        parent.addView(label(getString(when {
+            isDefault -> R.string.setup_home_active
+            enabled -> R.string.setup_home_enabled_not_default
+            else -> R.string.setup_home_description
+        }), 15, MUTED).apply { setPadding(0, dp(6), 0, 0) })
+        if (!enabled) {
+            parent.addView(button(getString(R.string.setup_home_use), true) {
+                CarHome.setEnabled(this, true)
+                CarHome.openHomePicker(this)
+                toast(getString(R.string.setup_home_pick_hint))
+                render()
+            }, matchButton(16, 60))
+            parent.addView(button("✓  ${getString(R.string.setup_home_keep)}", false) { }, matchButton(10, 60))
+            return
+        }
+        if (!isDefault) parent.addView(button(getString(R.string.setup_home_open_picker), true) {
+            if (!CarHome.openHomePicker(this)) toast(getString(R.string.setup_home_pick_hint))
+        }, matchButton(16, 60))
+        parent.addView(button(getString(R.string.setup_home_keep), false) {
+            CarHome.setEnabled(this, false)
+            render()
+        }, matchButton(10, 60))
     }
 
     private fun carButtonSaved() {

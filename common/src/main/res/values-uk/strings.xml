@@ -977,4 +977,24 @@
     <string name="setup_brand_pick_photo">Вибрати фото для кнопки</string>
     <string name="setup_brand_use_monogram">Використати ініціали марки</string>
     <string name="setup_brand_hint">Виберіть фото автомобіля або власне зображення емблеми. Зміни застосуються під час наступного підключення CarPlay.</string>
+    <string name="home_launcher_label">DiPlay Головна</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">Налаштування DiPlay</string>
+    <string name="home_title_apps">Застосунки</string>
+    <string name="home_hint">Натисніть і утримуйте застосунок, щоб перемістити або прибрати його.</string>
+    <string name="home_all_apps">Усі застосунки</string>
+    <string name="home_drawer_hint">Натисніть і утримуйте застосунок, щоб додати його на головний екран або прибрати (★).</string>
+    <string name="home_move_left">Перемістити ліворуч</string>
+    <string name="home_move_right">Перемістити праворуч</string>
+    <string name="home_remove_favorite">Прибрати з головного екрана</string>
+    <string name="home_favorites_full">Головний екран заповнено. Спочатку приберіть застосунок.</string>
+    <string name="home_cannot_open">Не вдалося відкрити цей застосунок.</string>
+    <string name="setup_home_title">Головний екран</string>
+    <string name="setup_home_description">DiPlay може замінити головний екран магнітоли своїм: марка й фото автомобіля, годинник, велика кнопка CarPlay і улюблені застосунки. Повернутися можна будь-коли.</string>
+    <string name="setup_home_use">Використовувати головний екран DiPlay</string>
+    <string name="setup_home_keep">Залишити екран магнітоли</string>
+    <string name="setup_home_open_picker">Відкрити налаштування головного застосунку</string>
+    <string name="setup_home_pick_hint">Виберіть «DiPlay Головна» як головний застосунок і натисніть «Додому».</string>
+    <string name="setup_home_active">Головний екран DiPlay використовується. Натисніть «Додому», щоб побачити його.</string>
+    <string name="setup_home_enabled_not_default">Головний екран DiPlay увімкнено, але ще не вибрано. Відкрийте налаштування головного застосунку й виберіть «DiPlay Головна».</string>
 </resources>

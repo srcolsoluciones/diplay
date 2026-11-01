@@ -1055,4 +1055,24 @@
     <string name="setup_brand_pick_photo">Scegli una foto per il pulsante</string>
     <string name="setup_brand_use_monogram">Usa le iniziali della marca</string>
     <string name="setup_brand_hint">Scegli una foto della tua auto o un\'immagine tua dello stemma. Le modifiche si applicano alla prossima connessione di CarPlay.</string>
+    <string name="home_launcher_label">DiPlay Home</string>
+    <string name="home_carplay">CarPlay</string>
+    <string name="home_diplay_settings">Impostazioni DiPlay</string>
+    <string name="home_title_apps">App</string>
+    <string name="home_hint">Tieni premuta un\'app per spostarla o rimuoverla.</string>
+    <string name="home_all_apps">Tutte le app</string>
+    <string name="home_drawer_hint">Tieni premuta un\'app per aggiungerla o toglierla dalla schermata Home (★).</string>
+    <string name="home_move_left">Sposta a sinistra</string>
+    <string name="home_move_right">Sposta a destra</string>
+    <string name="home_remove_favorite">Rimuovi dalla schermata Home</string>
+    <string name="home_favorites_full">La schermata Home è piena. Rimuovi prima un\'app.</string>
+    <string name="home_cannot_open">Impossibile aprire questa app.</string>
+    <string name="setup_home_title">Schermata Home</string>
+    <string name="setup_home_description">DiPlay può sostituire la schermata Home dell\'autoradio con la sua: marca e foto della tua auto, un orologio, un grande pulsante CarPlay e le tue app preferite. Puoi tornare indietro quando vuoi.</string>
+    <string name="setup_home_use">Usa la schermata Home di DiPlay</string>
+    <string name="setup_home_keep">Mantieni quella dell\'autoradio</string>
+    <string name="setup_home_open_picker">Apri impostazioni app Home</string>
+    <string name="setup_home_pick_hint">Scegli “DiPlay Home” come app Home, poi premi Home.</string>
+    <string name="setup_home_active">La schermata Home di DiPlay è in uso. Premi Home per vederla.</string>
+    <string name="setup_home_enabled_not_default">La schermata Home di DiPlay è attiva ma non ancora scelta. Apri le impostazioni app Home e scegli “DiPlay Home”.</string>
 </resources>
